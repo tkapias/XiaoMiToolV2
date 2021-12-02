@@ -9,24 +9,20 @@ This is  a fork of the source code of the Xiaomi modding tool XiaomiTool V2 (www
 
 ### Prepare your phone before proceeding to an Unlocking
 
-Check this [wiki](https://github.com/tkapias/XiaoMiToolV2/wiki/Unlock-Bootloader-on-any-Xiaomi-Phones).
+Check this [wiki](https://github.com/tkapias/XiaoMiToolV2/wiki/Unlock-Bootloader-on-any-Xiaomi-Phones). (Useful for Windows users too)
 
 ### Building and Running 
 
 Debian based linux:
-
-```
-sudo apt install git
-git clone https://github.com/tkapias/XiaoMiToolV2.git
-cd XiaoMiToolV2
-```
-
 You need the Java JDK v11.0.8, the version provided by your distro is probably higher.
 
 ```
+sudo apt install git
 wget -v -O openjdk-11.0.8.tar.gz https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.8%2B10/openlogic-openjdk-11.0.8%2B10-linux-x64.tar.gz
-tar xvf openjdk-11.0.8.tar.gz && mv openlogic-openjdk-11.0.8+10-linux-x64/ openjdk-11.0.8
-JAVA_HOME=$(pwd)/openjdk-11.0.8 ./gradlew build
-JAVA_HOME=$(pwd)/openjdk-11.0.8 ./gradlew run
+tar xvf openjdk-11.0.8.tar.gz && mv openlogic-openjdk-11.0.8+10-linux-x64/ openjdk-11.0.8 && rm -f openjdk-11.0.8.tar.gz
+git clone https://github.com/tkapias/XiaoMiToolV2.git
+cd XiaoMiToolV2
+JAVA_HOME=$(pwd)/../openjdk-11.0.8 ./gradlew build
+JAVA_HOME=$(pwd)/../openjdk-11.0.8 ./gradlew run
 ```
 To use the tool you just need to select the correct Region and to log in to your Xiaomi account when asked.
